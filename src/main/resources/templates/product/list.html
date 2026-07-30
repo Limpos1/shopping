@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>상품 목록</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+
+<!-- ~{프래그먼트 경로 :: 프래그먼트 이름} -->
+<div th:replace="~{fragments/header :: header}"></div>
+
+<div class="container">
+    <h1>상품 목록</h1>
+
+    <div class="toolbar">
+        <form class="search-box" method="get">
+            <input type="text" name="keyword" th:value="${keyword}" placeholder="상품명을 입력하세요">
+            <button type="submit" class="btn">검색</button>
+        </form>
+    </div>
+
+    <div class="product-grid">
+        <a class="product-card" th:each="product : ${products}"
+           th:href="@{/product/{id}(id=${product.id})}">
+            <div class="thumb">
+                <span>이미지 없음</span>
+            </div>
+            <div class="name" th:text="${product.getName()}"></div>
+            <div class="price">[[${product.getPrice()}]]원</div>
+            <div class="stock">
+                <span th:text="'재고 ' + ${product.stock}+'개'"></span>
+            </div>
+        </a>
+
+    </div>
+</div>
+</body>
+</html>

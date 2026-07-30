@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>로그인</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<header class="topbar">
+    <a class="brand" href="../product/list.html">SHOP</a>
+    <div class="menu">
+        <span>
+            <a href="login.html">로그인</a>
+            <a href="join.html">회원가입</a>
+        </span>
+    </div>
+</header>
+
+<div class="container">
+    <h1>로그인</h1>
+
+    <div class="alert">
+        아이디 또는 비밀번호가 올바르지 않습니다.
+    </div>
+
+    <div class="card">
+        <form method="post">
+            <div class="form-group">
+                <label for="loginId">아이디</label>
+                <input type="text" id="loginId" name="loginId">
+            </div>
+
+            <div class="form-group">
+                <label for="password">비밀번호</label>
+                <input type="password" id="password" name="password">
+            </div>
+
+            <div class="button-row">
+                <button type="submit" class="btn">로그인</button>
+                <a href="join.html" class="btn gray">회원가입</a>
+            </div>
+        </form>
+
+        <p class="meta" style="margin-top:20px;">
+            테스트 계정 — 관리자: admin / 1234 &nbsp;·&nbsp; 일반회원: user / 1234
+        </p>
+    </div>
+</div>
+</body>
+</html>
