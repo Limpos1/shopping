@@ -37,7 +37,14 @@ public class SecurityConfig {
 						.loginProcessingUrl("/login")
 				// 로그인 성공 후 이동할 경로
 				.defaultSuccessUrl("/products")
-				.failureUrl("/login?error=true"));
+				.failureUrl("/login?error=true"))
+				.logout(logout->logout
+						.logoutUrl("/logout")
+						.logoutSuccessUrl("/products")
+						// 로그아웃 후 세션을 초기화
+						.invalidateHttpSession(true)
+						.deleteCookies("JSESSIONID")
+				);
 		return http.build();
 		
 	}
