@@ -10,9 +10,9 @@
     <!-- 로그인을 한 경우-->
     <div class="menu">
         <span sec:authorize="isAuthenticated()">
-            <a href="../cart/list.html">장바구니</a>
-            <a href="../order/list.html">주문내역</a>
-            <b>홍길동</b>님
+            <a href="/cart">장바구니</a>
+            <a href="/orders">주문내역</a>
+            <b sec:authentication="principal.member.name">홍길동</b>님
             <form method="post">
                 <button type="submit" class="btn gray small">로그아웃</button>
             </form>

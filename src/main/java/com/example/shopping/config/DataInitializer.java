@@ -1,10 +1,14 @@
 package com.example.shopping.config;
 
+import com.example.shopping.domain.Member;
 import com.example.shopping.domain.Product;
+import com.example.shopping.domain.Role;
+import com.example.shopping.repository.MemberRepository;
 import com.example.shopping.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -21,6 +25,8 @@ import java.util.List;
 @RequiredArgsConstructor
 public class DataInitializer implements CommandLineRunner {
 	private final ProductRepository productRepository;
+	private final MemberRepository memberRepository;
+	private final PasswordEncoder passwordEncoder;
 	
 	@Override
 	public void run(String... args) throws Exception {
@@ -35,6 +41,10 @@ public class DataInitializer implements CommandLineRunner {
 		productRepository.saveAll(products);
 		
 		// 회원정보 등록
+		memberRepository.saveAll(List.of(
+				new Member("user1", passwordEncoder.encode("1234"),"홍길동"),
+				new Member("user2",passwordEncoder.encode("1234"),"김철수")
+		));
 		
 	}
 }

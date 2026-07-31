@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 @RequiredArgsConstructor
 @Controller
 public class MemberController {
-	private MemberService memberService;
+	final private MemberService memberService;
 	
 	@GetMapping("/login")
 	public String loginForm(){

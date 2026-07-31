@@ -32,12 +32,12 @@ public class SecurityConfig {
 								"/join",
 								"/login").permitAll())
 				.formLogin(form->form
-						.loginPage("/login"))
+						.loginPage("/login")
 						// 로그인 처리 경로 -> POST 방식의 요청을 Security가 대신 인증 처리
 						.loginProcessingUrl("/login")
 				// 로그인 성공 후 이동할 경로
 				.defaultSuccessUrl("/products")
-				.failureUrl("/login?error=true");
+				.failureUrl("/login?error=true"));
 		return http.build();
 		
 	}
