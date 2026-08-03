@@ -30,14 +30,16 @@ public class SecurityConfig {
 								"/error/**",
 								"/products",
 								"/join",
-								"/login").permitAll())
+								"/login").permitAll()
+						// 그 외 모든 경로는 로그인한 사용자만 접근 가능
+						.anyRequest().authenticated())
 				.formLogin(form->form
 						.loginPage("/login")
 						// 로그인 처리 경로 -> POST 방식의 요청을 Security가 대신 인증 처리
 						.loginProcessingUrl("/login")
-				// 로그인 성공 후 이동할 경로
-				.defaultSuccessUrl("/products")
-				.failureUrl("/login?error=true"))
+						// 로그인 성공 후 이동할 경로
+						.defaultSuccessUrl("/products")
+						.failureUrl("/login?error=true"))
 				.logout(logout->logout
 						.logoutUrl("/logout")
 						.logoutSuccessUrl("/products")
