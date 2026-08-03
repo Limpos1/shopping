@@ -30,6 +30,10 @@ public class ProductService {
 	}
 	
 	// 단일 상품 조회
+	public Product getProduct(Long id){
+		return productRepository.findById(id)
+				.orElseThrow(()->new IllegalArgumentException("존재하지 않는 상품입니다. id="+id));
+	}
 	
 	// 상품 등록
 	

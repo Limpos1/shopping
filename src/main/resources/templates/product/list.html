@@ -23,7 +23,7 @@
 
     <div class="product-grid">
         <a class="product-card" th:each="product : ${products}"
-           th:href="@{/product/{id}(id=${product.id})}">
+           th:href="@{/products/{id}(id=${product.id})}">
             <div class="thumb">
                 <span>이미지 없음</span>
             </div>

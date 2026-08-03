@@ -28,7 +28,7 @@ public class SecurityConfig {
 								"/css/**",
 								"/js/**",
 								"/error/**",
-								"/products",
+								"/products/**",
 								"/join",
 								"/login").permitAll()
 						// 그 외 모든 경로는 로그인한 사용자만 접근 가능
