@@ -10,8 +10,8 @@
 
 <div class="container">
     <h1>로그인</h1>
-
-    <div class="alert">
+<!-- 로그인 실패 시 SecurityConfig의 failureUrl 설정에 따라 ?error=true 파라미터가 붙는다. -->
+    <div class="alert" th:if="${param.error}">
         아이디 또는 비밀번호가 올바르지 않습니다.
     </div>
 

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>기계식 키보드</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div th:replace="~{fragments/header :: header}"></div>
+
+<div class="container">
+    <div class="card">
+        <h1>기계식 키보드</h1>
+        <div class="price-big">89,000원</div>
+        <div class="meta">
+            <span>재고 10개</span>
+        </div>
+
+        <div class="desc">적축 스위치를 사용한 텐키리스 기계식 키보드입니다.</div>
+
+        <form method="post" class="button-row">
+            <input type="hidden" name="productId" value="1">
+            <input type="number" name="quantity" class="qty-input" value="1" min="1" max="10">
+            <button type="submit" class="btn">장바구니에 담기</button>
+            <a href="list.html" class="btn gray">목록</a>
+        </form>
+    </div>
+</div>
+</body>
+</html>

@@ -6,10 +6,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,5 +24,12 @@ public class ProductController {
 		// 검색 키워드 저장
 		model.addAttribute("keyword",searchKeyword);
 		return "product/list";
+	}
+	
+	// 상품 상세 페이지 이동
+	@GetMapping("/{id}")
+	public String detail(@PathVariable Long id,Model model){
+		// id에 해당하는 product 정보를 조회해서 model에 담는다.
+		return "product/detail";
 	}
 }
