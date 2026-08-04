@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>주문 상세</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div th:replace="~{fragments/header :: header}"></div>
+
+<div class="container">
+    <h1>주문 상세</h1>
+
+    <div class="card">
+        <div class="meta">
+            주문번호 1 ·
+            2026-07-29 13:31 ·
+            <span class="badge ordered">주문완료</span>
+        </div>
+
+        <table class="data-list">
+            <thead>
+                <tr>
+                    <th>상품</th>
+                    <th class="right">주문 당시 가격</th>
+                    <th class="center">수량</th>
+                    <th class="right">합계</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <a href="../product/detail.html">기계식 키보드</a>
+                    </td>
+                    <td class="right">89,000원</td>
+                    <td class="center">1</td>
+                    <td class="right">89,000원</td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="../product/detail.html">무선 마우스</a>
+                    </td>
+                    <td class="right">32,000원</td>
+                    <td class="center">2</td>
+                    <td class="right">64,000원</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="total-row">
+            <span>총 결제 금액</span>
+            <span class="amount">153,000원</span>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>배송 정보</h2>
+        <p class="meta">
+            받는 분: 홍길동<br>
+            주소: 서울특별시 강남구 테헤란로 123<br>
+            연락처: 010-1234-5678
+        </p>
+    </div>
+
+    <div class="button-row">
+        <form method="post">
+            <button type="submit" class="btn danger">주문 취소</button>
+        </form>
+        <a href="list.html" class="btn gray">주문 내역</a>
+    </div>
+</div>
+</body>
+</html>

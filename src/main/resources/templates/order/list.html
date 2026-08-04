@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>주문 내역</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div th:replace="~{fragments/header :: header}"></div>
+
+<div class="container">
+    <h1>주문 내역</h1>
+
+    <table class="data-list">
+        <thead>
+            <tr>
+                <th>주문번호</th>
+                <th>주문일시</th>
+                <th>주문 상품</th>
+                <th class="right">금액</th>
+                <th class="center">상태</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <a href="detail.html">2</a>
+                </td>
+                <td>2026-07-29 14:02</td>
+                <td>27인치 모니터</td>
+                <td class="right">249,000원</td>
+                <td class="center">
+                    <span class="badge canceled">취소됨</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="detail.html">1</a>
+                </td>
+                <td>2026-07-29 13:31</td>
+                <td>기계식 키보드 외 1건</td>
+                <td class="right">153,000원</td>
+                <td class="center">
+                    <span class="badge ordered">주문완료</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
