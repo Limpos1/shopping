@@ -26,7 +26,18 @@
 
         <p class="desc" th:text="${product.description}"></p>
 
-        <div class="button-row">
+        <form sec:authorize="isAuthenticated()" th:if="${!product.isSoldOut()}" action="/cart/add" method="post" class="button-row">
+            <input type="hidden" name="productId" th:value="${product.id}">
+            <input type="number" name="quantity" value="1" min="1" th:max="${product.stock}" class="qty-input">
+            <button type="submit" class="btn">장바구니 담기</button>
+            <a href="/products" class="btn gray">목록으로</a>
+        </form>
+        <div sec:authorize="isAuthenticated()" th:if="${product.isSoldOut()}" class="button-row">
+            <button type="button" class="btn" disabled>품절된 상품</button>
+            <a href="/products" class="btn gray">목록으로</a>
+        </div>
+        <div sec:authorize="isAnonymous()" class="button-row">
+            <a href="/login" class="btn">로그인하고 담기</a>
             <a href="/products" class="btn gray">목록으로</a>
         </div>
     </div>

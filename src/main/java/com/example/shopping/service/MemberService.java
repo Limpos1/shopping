@@ -33,4 +33,10 @@ public class MemberService {
 		memberRepository.save(member);
 	
 	}
+	
+	// 로그인 아이디로 회원정보 조회
+	public Member findByUsername(String username){
+		return memberRepository.findByUsername(username)
+				.orElseThrow(()->new RuntimeException("존재하지 않는 사용자 입니다."));
+	}
 }

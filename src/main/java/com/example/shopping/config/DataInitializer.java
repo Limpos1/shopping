@@ -36,6 +36,7 @@ public class DataInitializer implements CommandLineRunner {
 		products.add(new Product("키보드",90000,10,"기계식 키보드",null));
 		products.add(new Product("마우스",32000,25,"무선 마우스",null));
 		products.add(new Product("모니터",249000,5,"QHD 해상도 27인치 모니터",null));
+		products.add(new Product("모니터",249,0,"QHD 해상도 27인치 모니터",null));
 		
 		// product 테이블에 저장
 		productRepository.saveAll(products);
