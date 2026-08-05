@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
-import org.springframework.data.annotation.CreatedDate;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -25,14 +24,13 @@ public class Order {
 	@JoinColumn(name="member_id")
 	private Member member;
 	
-	@OneToMany(mappedBy = "order")
+	@OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<OrderItem> orderItems = new ArrayList<>();
 	
 	@Enumerated(EnumType.STRING)
 	private OrderStatus status; // 주문 상태
 	
 	@CreationTimestamp // Order 객체가 생성될 때 시간 값을 자동으로 넣어줌
-	@CreatedDate // 날짜값을 자동으로 넣어준다.
 	private LocalDateTime orderedAt; // 주문 시간
 	
 	private String receiverName;
@@ -46,5 +44,16 @@ public class Order {
 		this.address = address;
 		this.phone = phone;
 		this.status = OrderStatus.ORDERED;
+	}
+	
+	// 주문 상품 추가(양방향 연관관계 설정)
+	public void addOrderItem(OrderItem orderItem){
+		orderItems.add(orderItem);
+		orderItem.setOrder(this);
+	}
+	
+	// 주문 총 합계 금액
+	public int getTotalPrice(){
+		return orderItems.stream().mapToInt(OrderItem::getTotalPrice).sum();
 	}
 }

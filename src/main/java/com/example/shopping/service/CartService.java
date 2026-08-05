@@ -28,6 +28,11 @@ public class CartService {
 		return cartItemRepository.findByMember(member);
 	}
 	
+	// 장바구니 총 합계 계산
+	public int getTotalPrice(List<CartItem> cartItems){
+		return cartItems.stream().mapToInt(CartItem::getTotalPrice).sum();
+	}
+	
 	// 장바구니 담기 (이미 담긴 상품이면 수량만 증가)
 	@Transactional
 	public void addCart(String username, Long productId, int quantity){

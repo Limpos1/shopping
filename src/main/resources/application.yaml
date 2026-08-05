@@ -1,4 +1,9 @@
 spring:
+
+  # application-oauth.yml 설정을 추가
+  profiles:
+    include: oauth
+
   application:
     name: board
   messages:

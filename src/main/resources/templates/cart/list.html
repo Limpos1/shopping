@@ -51,6 +51,9 @@
     <span>총 합계</span>
     <span class="amount" th:text="${totalPrice} + '원'"></span>
   </div>
+  <div class="button-row" th:unless="${#lists.isEmpty(cartItems)}" style="justify-content:flex-end;">
+    <a href="/orders/new" class="btn">주문하기</a>
+  </div>
 </div>
 </body>
 </html>

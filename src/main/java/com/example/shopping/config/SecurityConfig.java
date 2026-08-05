@@ -31,6 +31,8 @@ public class SecurityConfig {
 								"/products/**",
 								"/join",
 								"/login").permitAll()
+						.oauth2Login(oauth2 -> oauth2.loginPage("login")
+								.defaultSuccessUrl()
 						// 그 외 모든 경로는 로그인한 사용자만 접근 가능
 						.anyRequest().authenticated())
 				.formLogin(form->form
